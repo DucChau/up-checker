@@ -4,23 +4,31 @@
 
 # Build 
 
-    ### go binary
+`go binary`
     
-    `go build -o up-checker && ./up-checker`
-    
-    ### docker 
+```bash 
+go build -o up-checker && ./up-checker
+```
 
-    `docker build -t up-checker .`
+`docker` 
+
+```bash
+docker build -t up-checker
+```
 
 # Run 
 
-    ### go binary
+`go binary`
 
-    `./up-checker`
+```bash 
+./up-checker
+```
 
-    ### docker
+`docker`
     
-    `docker run -p 8000:8000 -it up-checker`
+```bash
+docker run -p 8000:8000 -it up-checker
+```
 
 # Request (POST)
 
@@ -43,5 +51,8 @@
 
 # Test (build docker, start docker, post to server with curl)
 ```bash
-docker build -t up-checker . && docker run -d -p 8000:8000 up-checker && curl -d '{"url": "https://www.omaze.com"}' -H "Content-Type: application/json" -X POST http://localhost:8000/v1/health && docker ps
+docker build -t up-checker . && 
+  docker run -d -p 8000:8000 up-checker && 
+  curl -d '{"url": "https://www.omaze.com"}' -H "Content-Type: application/json" -X POST http://localhost:8000/v1/health && 
+  docker ps
 ```
